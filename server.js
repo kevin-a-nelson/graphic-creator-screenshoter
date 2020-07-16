@@ -21,7 +21,6 @@ app.get("/screenshots/:display/:texts", async (req, res) => {
     const browser = await puppeteer.launch(); const page = await browser.newPage();
     await page.goto(url); // URL is given by the "user" (your client-side application)
     await page.setViewport({ width: 1300, height: 512 });
-    console.log(url)
 
     const screenshotBuffer = await page.screenshot({
         encoding: 'base64',
