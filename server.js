@@ -1,6 +1,9 @@
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const router = require('./router.js');
 
 // app.use(function(req, res, next) {
 //     res.header("Access-Control-Allow-Origin", '*');
@@ -10,10 +13,11 @@ const app = express();
 //     next();
 // })
 
-const bodyParser = require('body-parser');
-const router = require('./router.js');
 
 
+app.use(cors(
+    { origin: 'http://localhost:3000'}
+))
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

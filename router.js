@@ -4,11 +4,11 @@ const express = require('express');
 const router = express.Router();
 const cors = require('cors');
 
-router.get("/screenshots/:display/:texts", cors(),async (req, res) => {
+router.get("/screenshots/:display/:event", async (req, res) => {
 
     const display = req.params.display
-    const texts = req.params.texts
-    const url = `http://localhost:3000/?texts=${texts}&display=${display}`
+    const event = req.params.event
+    const url = `http://localhost:3000/?event=${event}&display=${display}`
 
     const browser = await puppeteer.launch({
     'args' : [
@@ -38,6 +38,6 @@ router.get("/screenshots/:display/:texts", cors(),async (req, res) => {
     })
 })
 
-router.get('/', cors(), (req, res) => res.json({ answer: 42 }));
+router.get('/', (req, res) => res.json({ answer: 42 }));
 
 module.exports = router;
