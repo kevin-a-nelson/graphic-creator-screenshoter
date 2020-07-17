@@ -41,4 +41,4 @@ app.get("/screenshots/:display/:texts", async (req, res) => {
 
 app.get('/', (req, res) => res.json({ answer: 42 }));
 
-app.listen(4000);
+app.listen(process.env.PORT || 4000);
