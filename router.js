@@ -8,7 +8,8 @@ router.get("/screenshots/:display/:event", async (req, res) => {
 
     const display = req.params.display
     const event = req.params.event
-    const url = `http://localhost:3000/?event=${event}&display=${display}`
+    // const url = `http://localhost:3000/?event=${event}&display=${display}`
+    const url = 'http://localhost:3000'
 
     const browser = await puppeteer.launch({
     'args' : [
