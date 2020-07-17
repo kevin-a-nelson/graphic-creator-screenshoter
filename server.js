@@ -2,6 +2,7 @@
 const puppeteer = require('puppeteer');
 const express = require('express');
 const bodyParser = require('body-parser');
+const router = express.Router();
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.raw());
 
 
-app.get("/screenshots/:display/:texts", async (req, res) => {
+router.get("/screenshots/:display/:texts", async (req, res) => {
 
     const display = req.params.display
     const texts = req.params.texts
@@ -45,6 +46,8 @@ app.get("/screenshots/:display/:texts", async (req, res) => {
     })
 })
 
-app.get('/', (req, res) => res.json({ answer: 42 }));
+router.get('/', (req, res) => res.json({ answer: 42 }));
+
+app.use(router);
 
 app.listen(process.env.PORT || 4000);
