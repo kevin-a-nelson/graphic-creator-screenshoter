@@ -9,7 +9,7 @@ router.get("/screenshots/:display/:event", async (req, res) => {
     const display = req.params.display
     const event = req.params.event
     // const url = `http://localhost:3000/?event=${event}&display=${display}`
-    const url = 'http://local:3000'
+    const url = 'http://prepnetworkgraphics.surge.sh/'
 
     const browser = await puppeteer.launch({
     'args' : [
