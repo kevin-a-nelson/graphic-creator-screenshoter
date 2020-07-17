@@ -2,9 +2,10 @@
 const puppeteer = require('puppeteer');
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
 
 
-router.get("/screenshots/:display/:texts", async (req, res) => {
+router.get("/screenshots/:display/:texts", cors(),async (req, res) => {
 
     const display = req.params.display
     const texts = req.params.texts
@@ -31,6 +32,6 @@ router.get("/screenshots/:display/:texts", async (req, res) => {
     })
 })
 
-router.get('/', (req, res) => res.json({ answer: 42 }));
+router.get('/', cors(), (req, res) => res.json({ answer: 42 }));
 
 module.exports = router;
